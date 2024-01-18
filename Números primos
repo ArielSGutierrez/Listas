@@ -1,0 +1,41 @@
+"""
+pedir 10 numeros al usuario y calcular:
+-el menor de los numeros primos ingresados
+- la cantidad de valores pares ingresados
+- el promedio de los numeros multiplos de 5
+- el promedio  de los numeros primos
+"""
+
+CANTIDAD = 6
+PROMEDIO = 5
+menor_numeros_primo = None
+suma_numeros_primos = 0
+cantidad_numeros_primos = 0
+suma_numeros_promedio = 0
+cantidad_numeros_promedio = 0
+cantidad_numeros_pares = 0
+
+for i in range(CANTIDAD):
+    num = int(input("Introduzca un número: "))
+    divisores = 0
+    for z in range(1, num + 1):
+        if num % z == 0:
+            divisores += 1
+
+    if divisores == 2:
+        suma_numeros_primos += num
+        cantidad_numeros_primos += 1
+    if divisores == 2 and menor_numeros_primo is None:
+        menor_numeros_primo = num
+    elif divisores == 2 and num < menor_numeros_primo:
+        menor_numeros_primo = num
+    if num % 2 == 0:
+        cantidad_numeros_pares += 1
+    if num % PROMEDIO == 0:
+        suma_numeros_promedio += num
+        cantidad_numeros_promedio += 1
+
+print(f"el promedio de los numeros primos es:{suma_numeros_primos / cantidad_numeros_primos}")
+print(f"el menor de los numeros primos es: {menor_numeros_primo}")
+print(f" la cantidad de números pares es: {cantidad_numeros_pares}")
+print(f" el promedio de {PROMEDIO} es: {suma_numeros_promedio / cantidad_numeros_promedio}")
