@@ -1,0 +1,35 @@
+"""
+Hacer un algoritmo que registra la temperatura (número decimal), todos los dias a
+las 15 hs durante todo una semana cualquiera. Mostrar por pantalla la temperatura
+más alta de esa semana y la más baja y en que día se registra(la posición).
+"""
+
+DIAS_DE_SEMANA = 7
+HORA_ESTABLECIDA = 15
+temperatura_mas_alta = None
+temperatura_mas_baja = None
+posicion_mayor = None
+posicion_menor = None
+temperatura = 0
+
+
+for i in range(DIAS_DE_SEMANA):
+    if HORA_ESTABLECIDA == 15:
+        temperatura = int(input(f"Introduzca la temperatura del día {i+1}: "))
+        if temperatura_mas_alta is None:
+            temperatura_mas_alta = temperatura
+            # aca solamente pedimos que nos guarde la posicion en que encuentra la temperatura más alta
+            posicion_mayor = i+1
+        elif temperatura > temperatura_mas_alta:
+            temperatura_mas_alta = temperatura
+            # guardar en que posicion se encontro el numero: ej: 7
+            posicion_mayor = i+1
+        if temperatura_mas_baja is None:
+            temperatura_mas_baja = temperatura
+            posicion_menor = i+1
+        elif temperatura < temperatura_mas_baja:
+            temperatura_mas_baja = temperatura
+            posicion_menor = i+1
+
+print(f"la temperatura más alta registrada en la semana (todos los dias) a las 15 hs es de {temperatura_mas_alta}° e ingreso en la posicion {posicion_mayor}")
+print(f"la temperatura más baja registrada en la semana (todos los dias) a las 15 hs es de {temperatura_mas_baja}° e ingreso en la posicion {posicion_menor}")
