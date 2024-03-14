@@ -1,0 +1,28 @@
+"""
+Tenemos la pantalla del móvil bloqueada. Partiendo de un PIN_SECRETO, intentaremos desbloquear la pantalla. Tenemos hasta 3 intentos. Simula el proceso con Python. En caso de acceder, lanza al usuario 'login correcto'. Sino, 'telefono bloqueado'.
+"""
+
+INTENTOS = 3
+PIN_SECRETO = "2fa44"
+un_intento = 0
+
+#Se ingresan el número de intentos que el usuario tiene para ingresar a su celular.
+for i in range(INTENTOS):
+    #Se muestra el número de cada intento
+    intentos = input(f" {i+1}° intento,introduzca el pin: ")
+    #En caso correcto se termina el programa. A su vez mostrando un mensaje de "Login correcto" para que el usuario sepa que ya puede usar su celular.
+    if intentos == PIN_SECRETO:
+       un_intento = 1
+       break
+    #En caso de que el usuario no ingrese el pin deseado o correcto, se muestra un mensaje de "pin erroneo", para que lo siga intentando. 
+    elif intentos != PIN_SECRETO:
+        print("pin erroneo")
+
+#Se muestra el mensaje final mostrando al usuario si pudo ingresar o no a su celular. 
+print("\nestado del login: ")
+if un_intento >0 :
+    print("Login correcto")
+else:
+    #En caso de que el usuario haya intentando las 3 veces y no se ingrese el pin correcto se muestra un mensaje "telefono bloqueado".
+    if INTENTOS == 3:
+        print("telefono bloqueado")
